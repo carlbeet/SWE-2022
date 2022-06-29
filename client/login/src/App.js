@@ -71,6 +71,9 @@ function App() {
         { (user.email != "") ? ( // javascript statement!
           <div className = "welcome">  
           <h2> Welcome, <span> {user.name} </span></h2>
+          <br></br>
+
+          <h3> Browse to our different services with the taskbar above! </h3>
           
           <form onSubmit = {submitHandler}>
           <div className = "form-inner">

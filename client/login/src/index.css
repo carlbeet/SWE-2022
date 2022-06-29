@@ -109,11 +109,20 @@ form .form-inner input[type="submit"] {
     color: #FFF;
     font-weight: 700;
     cursor: pointer;
+    position:  relative;
+    margin-right:  10px;
+    margin-left:  10px;
     
 }
 
 form .form-inner input[type="submit"]:hover {
     background-position: 100% 0%;
+    position:  relative;
+    margin-right:  10px;
+    margin-left:  10px;
+
+
+
 }
 
  .button:hover {
