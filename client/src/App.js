@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
+import Home from './components/Home';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     console.log("Details do not match!")
     }
   }
+  
 
   const Logout = () => {
     setUser({ name: "", email: ""});
@@ -35,13 +37,15 @@ function App() {
  
   return (
     <div className="App">
-      { (user.email != "") ? (
-        <div className = "welcome"> 
+      { (user.email != "") ? ( // javascript statement!
+        <div className = "welcome">  
         <h2> Welcome, <span> {user.name} </span></h2>
-        <button onClick = {Logout}> Logout </button>
+        <button onClick = {Logout}> Logout </button> 
         </div>
       ) : (
+        //<Home></Home>
         <LoginForm login = {Login} error = {error}/> //if there is an error we will display it if there isnt we wont
+        // we also have the option to write anonymous functions within the jsx: onClick = {() => setDetails...}
       )
       }
      
