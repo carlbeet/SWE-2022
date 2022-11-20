@@ -1,9 +1,11 @@
 export const adminUser = {
     email: "admin@admin.com",
-    password: "admin123"
+    password: "admin123",
+	name: "Adam"
   }
 
 export const testingUser = {
 	email: "tester@tester.com",
-	password: "testing123"
+	password: "testing123",
+	name: "Carl"
   }

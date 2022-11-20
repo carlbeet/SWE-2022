@@ -31,7 +31,15 @@ function App() {
     console.log("Details do not match!")
     }
   }
-  
+
+  const submitHandler = e => { //prevent page from rerender.
+        // pass in event as e and prevent default
+        // e.target is button element
+        // we can see more keys and properties of 'e" if we observe console.log(e)
+        e.preventDefault();
+        window.location.href = "http://localhost:3000"
+        
+    }
 
   const Logout = () => {
     setUser({ name: "", email: ""});
@@ -44,7 +52,14 @@ function App() {
       { (user.email != "") ? ( // javascript statement!
         <div className = "welcome">  
         <h2> Welcome, <span> {user.name} </span></h2>
-        <button onClick = {Logout}> Logout </button> 
+        
+        <form onSubmit = {submitHandler}>
+        <div className = "form-inner">
+            { /*Error*/ }
+            <input type= "submit" value = "Log out" />
+        </div>
+    </form>
+
         </div>
       ) : (
         //<Home></Home>
