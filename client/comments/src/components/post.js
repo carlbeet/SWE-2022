@@ -7,8 +7,9 @@ const Post = ({ post }) => {
     <HStack key={post.id} w="100%" alignItems="flex-start">
       <VoteButtons post={post} />
       <Box bg="gray.100" p={4} rounded="md" w="100%">
+      <Text fontSize="12px" color="grey">{"by: " + post.author}</Text>
         <Heading fontSize="25px">{post.title}</Heading>
-		<Text fontSize="15px">{post.content}</Text>
+    <Text fontSize="15px">{post.content}</Text>
       </Box>
     </HStack>
   );

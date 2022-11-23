@@ -20,16 +20,19 @@ const AddNewPost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [author, setAuthor] = useState("");
   const [isSaving, setSaving] = useState(false);
 
   const handleSubmit = async () => {
     setSaving(true);
 
     const date = new Date();
+    const author = Object.fromEntries(document.cookie.split('; ').map(c => c.split('=')))['username'];
 
     await db.collection("posts").add({
       title,
-	  content,
+      content,
+      author,
       upVotesCount: 0,
       downVotesCount: 0,
       createdAt: date.toUTCString(),
@@ -38,7 +41,8 @@ const AddNewPost = () => {
 
     onClose();
     setTitle("");
-	setContent("");
+    setContent("");
+    setAuthor("");
     setSaving(false);
   };
 
