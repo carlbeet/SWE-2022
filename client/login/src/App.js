@@ -24,16 +24,19 @@ function App() {
           name: adminUser.name,
           email: details.email
         });
+        setCookie('username', adminUser.username, { path: '/' });
+    
       }
       else{
         setUser({
           name: testingUser.name,
           email: details.email
         });
+        setCookie('username', testingUser.username, { path: '/' });
+
       }
 
-    setCookie('username', details.email, { path: '/' });
-	  
+   
 
     }
     else {
