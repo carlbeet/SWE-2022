@@ -1,56 +1,95 @@
-//import logo from './logo.svg';
 import React, { useState } from 'react';
-import LoginForm from './components/LoginForm';
-import Home from './components/Home';
+import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
+//import { Route, Routes} from "react-router";
+import LandingPage from './components/LandingPage.js';
+import About from './components/About.js';
+import SignUpForm from './components/SignUpForm.js';
+import Login from './components/login.js';
+import LoginForm from './components/LoginForm.js';
+//terminal: npm install react-router-dom
 
+export default function App() {
 
-function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123"
-  }
+const styles = {
+  main: {
+    // width: '100vw',
+    // height: '100vh',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // alignItems: 'center'
+  },
 
-  const [user, setUser] = useState({name: "", email: ""});
-  const [error, setError] = useState("");
-
-  const Login = details => {
-    console.log(details);
-
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-    console.log("Logged in!");
-    setUser({
-      name: details.name,
-      email: details.email
-    });
-    }
-    else {
-    console.log("Details do not match!")
-    }
-  }
+  top: {
+    // backgroundColor: 'rgb(0, 250, 250)',
+    // display: 'flex',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
   
+   },
 
-  const Logout = () => {
-    setUser({ name: "", email: ""});
-    console.log("logout");
+  navbar: {
+    display: 'flex',
+    justifyContent: 'right',
+    alignItems: 'baseline'
+   
   }
 
- 
-  return (
-    <div className="App">
-      { (user.email != "") ? ( // javascript statement!
-        <div className = "welcome">  
-        <h2> Welcome, <span> {user.name} </span></h2>
-        <button onClick = {Logout}> Logout </button> 
-        </div>
-      ) : (
-        //<Home></Home>
-        <LoginForm login = {Login} error = {error}/> //if there is an error we will display it if there isnt we wont
-        // we also have the option to write anonymous functions within the jsx: onClick = {() => setDetails...}
-      )
-      }
-     
-    </div>
-  );
 }
 
-export default App;
+const links = [ {text: 'HOME', link: '/', emphasis: true },
+{text: 'ABOUT', link: '/about' },
+{text: 'SIGN UP', link: '/signup'},
+{text: 'LOGIN', link: '/login'}
+// ... navbar ...
+ ]
+ 
+ // this is the multi step onboarding form!
+ // https://www.youtube.com/watch?v=wOxP4k9f5rk
+ const [page, setPage] = useState(0);
+ const advancePage = () => {
+  setPage((page) => page + 1);
+ }
+ const backUpPage = () => {
+  setPage((page) => page - 1);
+ }
+
+ const FormTitles = ["Anonymous Web Messaging App", "is bro ok?", "bro is scaring the hoes"]
+
+return (
+  <div className = "App">
+  <Router> 
+    <div style = {styles.main} >
+      <div style = {styles.top} >
+      <div style = {styles.navbar}> 
+    {links.map((link) => (
+      <Link to = {link.link}>
+        <p className ="link"> {link.text} </p>
+      </Link>  
+     // link ref: https://www.youtube.com/watch?v=DO-pSysGItQ
+     // Switch make sures theres only one page at a time renders that component inside the route*/
+    ))}
+    <div className = "routes" > 
+    <Routes> 
+      <Route exact path = '/' element ={<About/>} />
+      <Route path = {links[1].link} element = {<About/>} />
+      <Route path = {links[2].link} element = {<SignUpForm/>} />
+      <Route path = {links[3].link} element = {<Login/>} />
+  
+    </Routes>
+    </div>
+      </div>
+      </div>
+    </div>
+  </Router>
+
+  <div className = 'form'> 
+    <div className = 'header'>
+      <h1> {FormTitles[page]} </h1>
+    </div>
+      <div className = 'body'> 
+      <button className = 'headrs' onClick = {backUpPage}> prev </button>
+      <button className = 'headrs' onClick = {advancePage}> next </button>
+      </div>
+    </div>
+    </div>
+)}

@@ -2,16 +2,14 @@ import React, { useState } from 'react'
 
 
 
-function LoginForm({login, error}) { //functional component
+function LoginForm({login, error}) {
     const [details, setDetails] = useState({name: "", email: "", password: ""}); //local details
    
     const submitHandler = e => { //prevent page from rerender.
-        // pass in event as e and prevent default
-        // e.target is button element
-        // we can see more keys and properties of 'e" if we observe console.log(e)
         e.preventDefault();
         
         login(details);
+        console.log("submitted")
     }
 
   return (
@@ -24,14 +22,12 @@ function LoginForm({login, error}) { //functional component
                 <input type="text" name="name" id="name" onChange={ e => setDetails({...details, name: e.target.value})} value = {details.name}  />
             </div>
             <div className= "form-group">
-               
                 <label htmlFor="email"> Email: </label>
-                { (details.email.includes("gmail") ) ? (<label htmlFor="message"> lookin good icon (gmail detected) </label> ) : ( console.log ("okay")) }
-        
                 <input type="text" name="email" id="email" onChange={ e => setDetails({...details, email: e.target.value})} value = {details.email} />
             </div>
             <div className= "form-group">
                 <label htmlFor="password"> Password: </label>
+                {(details.password.length< 8) ? (<label> Please enter a longer password! </label>) : (<label> Password is good length </label>)}
                 <input type="text" name="password" id="password" onChange={ e => setDetails({...details, password: e.target.value})} value = {details.password} />
             </div>
             <input type= "submit" value = "LOGIN" />
