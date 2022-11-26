@@ -9,6 +9,7 @@ function LoginForm({login, error}) {
         e.preventDefault();
         
         login(details);
+        console.log("submitted")
     }
 
   return (
@@ -26,6 +27,7 @@ function LoginForm({login, error}) {
             </div>
             <div className= "form-group">
                 <label htmlFor="password"> Password: </label>
+                {(details.password.length< 8) ? (<label> Please enter a longer password! </label>) : (<label> Password is good length </label>)}
                 <input type="text" name="password" id="password" onChange={ e => setDetails({...details, password: e.target.value})} value = {details.password} />
             </div>
             <input type= "submit" value = "LOGIN" />
