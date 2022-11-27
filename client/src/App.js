@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 //import { Route, Routes} from "react-router";
-import LandingPage from './components/LandingPage.js';
-import About from './components/About.js';
+import About from './pages/About.js';
+import LandingPage from './pages/LandingPage.js';
 import SignUpForm from './components/SignUpForm.js';
-import Login from './components/login.js';
-import LoginForm from './components/LoginForm.js';
+import Login from './pages/Login.js';
+import Home from  './pages/Home.js';
+import Signup from './pages/Signup.js';
+//to run locally, type in terminal: npm start 
 //terminal: npm install react-router-dom
+
+//TODO: 
+// 1. in login.js, we will use database calls api POST and GET mappings to check if info matches a record from the database
+// findBy(user) is not null and if the passwords are ==, we approve login 
+// then we have auth function 
+//favorite resources
+    //Net Ninja full tutorial, routing: https://www.youtube.com/watch?v=DO-pSysGItQ&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=23
+    //AuthRoute: https://www.freecodecamp.org/news/react-router-tutorial/#:~:text=To%20add%20the%20link%20in,link%20if%20it%20is%20active. or only show dash once authenticated
+// 2. all the styles... T.T
+// we shall be lazy and use templates
 
 export default function App() {
 
@@ -39,21 +51,12 @@ const styles = {
 const links = [ {text: 'HOME', link: '/', emphasis: true },
 {text: 'ABOUT', link: '/about' },
 {text: 'SIGN UP', link: '/signup'},
-{text: 'LOGIN', link: '/login'}
+{text: 'LOGIN', link: '/login'},
+{text: 'Bonus', link: '/bonus'}
 // ... navbar ...
  ]
  
- // this is the multi step onboarding form!
- // https://www.youtube.com/watch?v=wOxP4k9f5rk
- const [page, setPage] = useState(0);
- const advancePage = () => {
-  setPage((page) => page + 1);
- }
- const backUpPage = () => {
-  setPage((page) => page - 1);
- }
 
- const FormTitles = ["Anonymous Web Messaging App", "is bro ok?", "bro is scaring the hoes"]
 
 return (
   <div className = "App">
@@ -70,10 +73,11 @@ return (
     ))}
     <div className = "routes" > 
     <Routes> 
-      <Route exact path = '/' element ={<About/>} />
-      <Route path = {links[1].link} element = {<About/>} />
-      <Route path = {links[2].link} element = {<SignUpForm/>} />
-      <Route path = {links[3].link} element = {<Login/>} />
+      <Route exact path = '/' element ={<Home/>} />
+      <Route path = {links[1].link} element = {<About/>} />   {/* about */}
+      <Route path = {links[2].link} element = {<Signup/>} />   {/* signup */}
+      <Route path = {links[3].link} element = {<Login/>} />    {/* login */}
+      <Route path = {links[4].link} element = {<LandingPage/>} />    {/* bonus */}
   
     </Routes>
     </div>
@@ -81,15 +85,5 @@ return (
       </div>
     </div>
   </Router>
-
-  <div className = 'form'> 
-    <div className = 'header'>
-      <h1> {FormTitles[page]} </h1>
-    </div>
-      <div className = 'body'> 
-      <button className = 'headrs' onClick = {backUpPage}> prev </button>
-      <button className = 'headrs' onClick = {advancePage}> next </button>
-      </div>
-    </div>
-    </div>
+</div>
 )}

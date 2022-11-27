@@ -11,8 +11,8 @@ import React from "react";
 
 export default function SignUpForm() {
     return ( 
-        <div className = "about"> 
-       <p> Yeah so like bother your coworkers. This goes out to all the ppl on their phones on the toilet! </p>
+        <div className = "sign"> 
+       <p> under construction! </p>
         </div>
     )
 }

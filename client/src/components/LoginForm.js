@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 
+//pass login and error as props from login.js! where our verification n stuff happens
+//here is where we actually render our form.
 
 function LoginForm({login, error}) {
     const [details, setDetails] = useState({name: "", email: "", password: ""}); //local details
