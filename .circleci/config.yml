@@ -13,8 +13,9 @@ jobs:
 
     steps:
       - checkout
-      - run: npm --prefix ./client/ install
-      - run: npm --prefix ./client/ test
+      - run: npm --prefix ./client/login install
+      - run: npm --prefix ./client/login test
+	  - run: npm --prefix ./client/comments install
   test-python:
     docker:
         - image: cimg/python:3.10.2
