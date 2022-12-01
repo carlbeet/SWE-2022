@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
 import Home from './components/Home';
+import { useCookies } from 'react-cookie';
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
+  const [cookies, setCookie] = useCookies(['username']);
 
   const Login = details => {
     console.log(details);
@@ -28,7 +31,8 @@ function App() {
       email: details.email
     });
 
-	document.cookie = "username=" + details.name;
+    setCookie('username', details.email, { path: '/' });
+	  
 
     }
     else {
