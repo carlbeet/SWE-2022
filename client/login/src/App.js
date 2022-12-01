@@ -21,6 +21,7 @@ function App() {
     setUser({
       name: details.name,
       email: details.email
+      document.cookie = "username=" + details.name;
     });
     }
     else {
