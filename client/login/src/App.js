@@ -10,19 +10,26 @@ function App() {
     password: "admin123"
   }
 
+  const testingUser = {
+	email: "tester@tester.com",
+	password: "testing123"
+  }
+
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
 
   const Login = details => {
     console.log(details);
 
-    if (details.email == adminUser.email && details.password == adminUser.password) {
+    if ((details.email == adminUser.email && details.password == adminUser.password) || (details.email == testingUser.email && details.password == testingUser.password)) {
     console.log("Logged in!");
     setUser({
       name: details.name,
       email: details.email
-      document.cookie = "username=" + details.name;
     });
+
+	document.cookie = "username=" + details.name;
+
     }
     else {
     console.log("Details do not match!")
