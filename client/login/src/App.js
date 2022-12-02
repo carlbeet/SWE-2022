@@ -3,19 +3,11 @@ import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import { useCookies } from 'react-cookie';
-
+import { adminUser, testingUser } from './accts.js'
 
 
 function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123"
-  }
 
-  const testingUser = {
-	email: "tester@tester.com",
-	password: "testing123"
-  }
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
