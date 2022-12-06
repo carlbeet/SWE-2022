@@ -69,6 +69,10 @@ cd ../../about
 ./start.sh
 ```
 
+## Needs Work
+Installing data into graphical visualization from MongoDB
+Pull data with Ajax in JSON form for interpretation
+Utilize D3.js to graph data for comparative reasons
 
 ## Contributing
 
