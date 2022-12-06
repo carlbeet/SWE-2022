@@ -30,7 +30,8 @@ function LoginForm({login, error}) { //functional component
                 <label htmlFor="password"> Password: </label>
                 <input type="password" name="password" id="password" onChange={ e => setDetails({...details, password: e.target.value})} value = {details.password} />
             </div>
-            <input type= "submit" value = "LOGIN" />
+            <input type= "submit" value = "LOGIN"/>
+            <input type= "submit" onclick="location.href='http://localhost:3000';" value = "SIGNUP" />
         </div>
     </form>
   )
