@@ -21,7 +21,7 @@ mongo_db_password
 password_salt
 ```
 
-In `client/comments/.env`, enter information in the following formati:
+In `client/comments/.env`, enter information in the following format:
 
 ```
 REACT_APP_FIREBASE_API_KEY=""
