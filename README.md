@@ -57,14 +57,19 @@ npm --prefix ./client/about install
 cd ./src
 python3 app.py
 cd ../
+
 cd ./client/login
 ./start.sh
+
 cd ../comments
 ./start.sh
+
 cd ../messaging/server
 ./start.sh
+
 cd ../client
 ./start.sh
+
 cd ../../about
 ./start.sh
 ```
