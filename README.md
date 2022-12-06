@@ -43,9 +43,11 @@ git clone https://github.com/Adamkadaban/SWE-2022
 cd SWE-2022
 cd ./src
 python3 install -r requirements.txt
+
 npm --prefix ./client/login install
 npm --prefix ./client/comments install
-npm --prefix ./client/messaging install
+npm --prefix ./client/messaging/client install
+npm --prefix ./client/messaging/server install
 npm --prefix ./client/about install
 ```
 
@@ -59,9 +61,11 @@ cd ./client/login
 ./start.sh
 cd ../comments
 ./start.sh
-cd ../messaging
+cd ../messaging/server
 ./start.sh
-cd ../about
+cd ../client
+./start.sh
+cd ../../about
 ./start.sh
 ```
 
