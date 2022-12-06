@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
-//import { Route, Routes} from "react-router";
 import About from './pages/About.js';
 import LandingPage from './pages/LandingPage.js';
-import SignUpForm from './components/SignUpForm.js';
 import Login from './pages/Login.js';
 import Home from  './pages/Home.js';
 import Signup from './pages/Signup.js';
 //to run locally, type in terminal: npm start 
 //terminal: npm install react-router-dom
 
-//TODO: 
 // 1. in login.js, we will use database calls api POST and GET mappings to check if info matches a record from the database
 // findBy(user) is not null and if the passwords are ==, we approve login 
 // then we have auth function 
