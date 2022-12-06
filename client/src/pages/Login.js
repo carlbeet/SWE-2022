@@ -17,7 +17,6 @@ function Login() {
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
-
   const Login = details => {
     console.log(details);
 
