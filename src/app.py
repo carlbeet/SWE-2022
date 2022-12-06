@@ -13,7 +13,6 @@ with open('creds.config') as fin:
 	mongo_username = contents[0].rstrip()
 	mongo_password = contents[1].rstrip()
 	mongo_salt = contents[2].rstrip()
-<<<<<<< HEAD
 
 adjectives = ["Soft", "Hard", "Cramped", "Free", "Glassy", "Hot", "Cold", "Sweaty", "Dry", "Wet"]
 nouns = ["Cucumber", "Banana", "Cat", "Dog", "Engineer", "Scientist", "Car", "User", "Meat", "Mattress"]
