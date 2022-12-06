@@ -357,23 +357,23 @@ i {
 }
 
 
-h1, h2, h3, ul, il, p {
+h1, h2, h3, ul,  p {
   padding-left: 15%;
   padding-right: 15%;
 }
 
-h2, h3, ul, il, p {
+h2, h3, ul, p {
   padding-left: 16%;
   padding-right: 16%;
 }
 
-h3, ul, il, p {
+h3, ul, p {
   padding-left: 17%;
   padding-right: 17%;
 }
 
 
-ul, il, p {
+ul, p {
   padding-left: 18.5%;
   padding-right: 18.5%;
 }
