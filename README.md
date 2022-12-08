@@ -2,6 +2,12 @@
 
 :sparkles: Welcome to our project! :sparkles:
 
+This app was made for CEN3031 taught by Dr. Thomas in order to address the social issue of workplace mistreatment.
+
+Read more below for the basic details of the project:
+
+
+
 ## Features
 
 - Anonymous Posting
